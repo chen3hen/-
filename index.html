@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="xbsj-labels" content="Earth起步">
+    </meta>
+    <title>西施音乐节</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- 0 引入js文件 -->
+    <script src="assess/XbsjEarth/XbsjEarth.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/echarts.min.js"></script>
+    <script src="js/chart.js"></script>
+    <link href='http://127.0.0.1:9000/bigemap-gl.js/v1.1.0/Widgets/widgets.css' rel='stylesheet' />
+    <script src='http://127.0.0.1:9000/bigemap-gl.js/v1.1.0/bigemap-gl.js'></script>
+    <!-- 原始js -->
+    <script src="./js/jquery-1.11.0.min.js"></script>
+    <script src="./js/echarts.min.js"></script>
+    <script src="./node_modules/echarts-liquidfill/dist/echarts-liquidfill.min.js"></script>
+    <script src="./js/main.js"></script>
+
+    <style>
+        @font-face {
+            font-family: 'AlimamaDongFangDaKai';
+            src: url('fonts/AlimamaDongFangDaKai/AlimamaDongFangDaKai-Regular.ttf');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        html,
+        body,
+        #earthContainer {
+            width: 100%;
+            height: 100%;
+            margin: 0px;
+            padding: 0px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 底层地图
+    <div id="earthContainer"></div>
+    <script>
+        var earth = "";
+
+        function startup() {
+            earth && earth.destroy();
+            earth = new XE.Earth('earthContainer')
+
+            $.ajax({
+                url: "json/scene.json",
+                type: "GET",
+                dataType: "json",
+                success: function (response) {
+                    earth.sceneTree = response.sceneTree;
+                    window.earth = earth;
+
+
+                    // flyToChina()
+
+                    // // cesium加载代码
+                    // var viewer = earth.czm.viewer;
+                    // var rect;
+
+                    // viewer.imageryLayers.addImageryProvider(new Cesium.UrlTemplateImageryProvider({
+                    //   url: 'http://127.0.0.1:9000/bigemap.4glwk72m/tiles/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiY3VzXzlqdXBuOXJjIiwiYSI6ImYwMTlyNnhncjBsOW93NHNzM3M0aGs4MzUiLCJ0IjoxfQ.OkNCUBSFijns3ABFogXnyTeaGtDnstMv5V7tBusorMQ',
+                    //   rectangle: rect,
+                    //   //minimumLevel:0,
+                    //   //maximumLevel:18
+                    // }));
+
+                    // if (rect) {
+                    //   viewer.camera.flyTo({
+                    //     destination: rect,
+                    //     duration: 1,
+                    //     orientation: {
+                    //       heading: Cesium.Math.toRadians(0.0),
+                    //       pitch: Cesium.Math.toRadians(-90.0),
+                    //       roll: 0.0
+                    //     }
+                    //   })
+                    // }
+                }
+            });
+
+        }
+
+        // 显示地图
+        function showMap() {
+
+            // cesium加载代码
+            var viewer = earth.czm.viewer;
+            var rect;
+            rect = Cesium.Rectangle.fromRadians(2.098419211444275, 0.5180547620361637, 2.098789825721478,
+                0.5184800769909619)
+
+            if (rect) {
+                viewer.camera.flyTo({
+                    destination: rect,
+                    duration: 1,
+                    orientation: {
+                        heading: Cesium.Math.toRadians(0.0),
+                        pitch: Cesium.Math.toRadians(-90.0),
+                        roll: 0.0
+                    }
+                })
+            }
+
+            window.viewer = viewer;
+        }
+
+
+        // function flyToChina () {
+        //   const position = [1.9541895875590976, 0.5250470593581142, 7977677.725770064];
+        //   const rotation = [6.199601447728825, -1.4750524418332556, 6.281821351893175];
+        //   const viewDistance = 0;
+        //   earth.camera.flyTo(position, viewDistance, rotation);
+        // }
+
+        XE.ready().then(() => {
+            // 加载标绘插件
+            XE.HTML.loadJS('js/plottingSymbol.js');
+            return XE.HTML.loadJS('js/plottingSymbol2.js');
+        }).then(() => {
+            startup();
+            bindChart()
+
+        });
+    </script> -->
+
+    <!-- 头部模块 -->
+    <header>
+        <h1><span>2023诸暨西施跨年音乐节</span></h1>
+        <p><span>安保指挥平台</span></p>
+    </header>
+
+    <div class="main">
+        <!-- top5 -->
+        <div class="top5">
+            <div class="top5-title">
+                <span>路口人流量（半小时）</span>
+            </div>
+            <div class="top5-content">
+                <ul>
+                    <li>
+                        <div class="cicle"></div>
+                        <div class="li-content">
+                            <span>郑旦路</span>
+                            <span>15862</span>
+                            <span>3899%</span>
+                            <span><img src="./images/up.png"></span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="cicle"></div>
+                        <div class="li-content">
+                            <span>金鸡山路</span>
+                            <span>15862</span>
+                            <span>2321</span>
+                            <span><img src="./images/up.png"></span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="cicle"></div>
+                        <div class="li-content">
+                            <span>浣浦路</span>
+                            <span>15862</span>
+                            <span>820</span>
+                            <span><img src="./images/up.png"></span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="cicle"></div>
+                        <div class="li-content">
+                            <span>西施故里</span>
+                            <span>15862</span>
+                            <span>8222</span>
+                            <span><img src="./images/up.png"></span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="cicle"></div>
+                        <div class="li-content">
+                            <span>祥安路</span>
+                            <span>15862</span>
+                            <span>8211</span>
+                            <span><img src="./images/down.png"></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="top5-title">
+                <span>近一小时人流量分析</span>
+            </div>
+        </div>
+        <!-- 中间部分 -->
+        <div class="total">
+
+        </div>
+        <!-- 场内人数 -->
+        <div class="analyse">
+            <div class="analyse-title">
+                <span>实时人数</span>
+            </div>
+            <ul>
+                <li>
+                    <img src="./images/s1.png">
+                    <h5>场内总人数</h5><br>
+                    <span>UNIT TOTAL PERSONS</span><br>
+                    <em>13000人</em>
+                </li>
+                <li>
+                    <img src="./images/s3.png">
+                    <h5>净流入</h5><br>
+                    <span>Net Inflows</span><br>
+                    <em>15030</em>
+                </li>
+                <li>
+                    <img src="./images/s2.png">
+                    <h5>净流出</h5><br>
+                    <span>Net Outflow</span><br>
+                    <em>400</em>
+                </li>
+            </ul>
+            <div class="execution">
+                <div class="title">场内情况</div>
+                <div class="cicle1"></div>
+                <div class="cicle2"></div>
+                <div class="waterChart1">
+                    <div class="chart-title">饱和率</div>
+                    <div class="chart1"></div>
+                </div>
+                <div class="waterChart2">
+                    <div class="chart-title">人数/面积</div>
+                    <div class="chart2"></div>
+                </div>
+            </div>
+        </div>
+        <!-- 近一小时人流量分析 -->
+        <div class="sale">
+            <ul>
+                <li>
+                    <div class="showImg">
+                        <img src="./images/shoe.png">
+                    </div>
+                    <div class="data">
+                        <span>总进</span>
+                        <span>5000</span>
+                    </div>
+                    <div class="shoeChart"></div>
+                </li>
+                <li>
+                    <div class="showImg">
+                        <img src="./images/clothes.png">
+                    </div>
+                    <div class="data">
+                        <span>总出</span>
+                        <span>5000</span>
+                    </div>
+                    <div class="clothesChart"></div>
+                </li>
+                <li>
+                    <div class="showImg">
+                        <img src="./images/mz.png">
+                    </div>
+                    <div class="data">
+                        <span>进出数</span>
+                        <span>10000</span>
+                    </div>
+                    <div class="mzChart"></div>
+                </li>
+            </ul>
+        </div>
+        <!-- 折线图 -->
+        <div class="lineChart">
+
+        </div>
+    </div>
+
+    <!-- 底部模块 -->
+    <div class="bottom">
+        <h5><span></span></h5>
+        <p></p>
+    </div>
+</body>
+<script src="./js/jquery-1.11.0.min.js"></script>
+<script src="./js/echarts.min.js"></script>
+<script src="./node_modules/echarts-liquidfill/dist/echarts-liquidfill.min.js"></script>
+<script src="./js/main.js"></script>
+
+</html>
